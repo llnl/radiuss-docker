@@ -3,8 +3,10 @@ dockerbuild:
 
   matrix:
     llvm_version:
+      - "14"
       - "19"
     ubuntu_version:
+      - "24.04"
       - "24.04"
 
   build_args:
