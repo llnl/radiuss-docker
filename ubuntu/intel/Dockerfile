@@ -18,6 +18,7 @@ RUN \
 
 USER radiuss
 
-RUN echo 'source /opt/intel/oneapi/setvars.sh 2>&1 > /dev/null' >> ~/.bashrc
+RUN echo 'source /opt/intel/oneapi/setvars.sh 2>&1 > /dev/null' >> ~/.bashrc \
+    && echo 'export PATH=/opt/intel/oneapi/compiler/${intel_version}/bin:$PATH' >> ~/.bashrc
 
 WORKDIR /home/radiuss
