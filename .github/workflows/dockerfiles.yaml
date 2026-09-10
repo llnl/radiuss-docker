@@ -54,7 +54,7 @@ jobs:
           done            
 
       - name: List all Dockerfile and save to matrix
-        uses: vsoch/uptodate@main
+        uses: davidbeckingsale/uptodate@feature/sorted-args
         if: github.event_name != 'schedule'
         id: dockerfile_list_pr
         with: 
@@ -71,13 +71,13 @@ jobs:
 
       - name: Add new Dockerfiles for build
         if: github.event_name == 'schedule'
-        uses: vsoch/uptodate@main
+        uses: davidbeckingsale/uptodate@feature/sorted-args
         with: 
           root: .
           parser: dockerhierarchy
 
       - name: Update existing Dockerfile hashes
-        uses: vsoch/uptodate@main
+        uses: davidbeckingsale/uptodate@feature/sorted-args
         if: github.event_name == 'schedule'
         id: dockerfile_check
         with: 
@@ -94,7 +94,7 @@ jobs:
         run: /bin/bash .github/scripts/commit.sh
 
       - name: List all Dockerfile and save to matrix
-        uses: vsoch/uptodate@main
+        uses: davidbeckingsale/uptodate@feature/sorted-args
         if: github.event_name == 'schedule'
         id: dockerfile_list_scheduled
         with: 

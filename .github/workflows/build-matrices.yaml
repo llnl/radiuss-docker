@@ -48,7 +48,7 @@ jobs:
 
     - name: Generate Build Matrix
       if: github.event_name != 'schedule'
-      uses: vsoch/uptodate@main
+      uses: davidbeckingsale/uptodate@feature/sorted-args
       id: dockerbuild_pr
       with: 
         root: ${{ steps.parsed_files.outputs.parsed_files }}
@@ -62,7 +62,7 @@ jobs:
       with:
          fetch-depth: 0
     - name: Generate Build Matrix
-      uses: vsoch/uptodate@main
+      uses: davidbeckingsale/uptodate@feature/sorted-args
       if: github.event_name == 'schedule'      
       id: dockerbuild_scheduled
       with: 
